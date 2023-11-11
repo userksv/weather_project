@@ -1,0 +1,26 @@
+{% extends "weather/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1>My locations</h1>
+<div class="container">
+
+    {% for loc in locations %}
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'location_view' loc.name %}">{{loc.name}}</a>
+        </div>
+        <div class="col">
+            {{ loc.lattitude.normalize }} | {{ loc.longitude.normalize }}
+        </div>
+        <div class="col">
+            <a href="{% url 'delete_location' loc.name %}" class="btn btn-outline-danger btn-sm " type="button">
+                Delete
+            </a>
+        </div>
+    </div>
+    <hr>
+    {% endfor%}
+</div>
+{% endblock %}

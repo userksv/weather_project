@@ -1,0 +1,15 @@
+{% extends "weather/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ data.city }}</h1>
+    <p>{{ data.temperature }} C°</p>
+    <h3>{{ data.weather }}</h3>
+    <p><small>{{ data.description }}</small></p>
+    <img src="https://openweathermap.org/img/wn/{{ data.icon }}@2x.png" alt="img">
+    <p><small>{{ data.date_time }}</small></p>
+    <p>{{ data.lon }}</p>
+    <p>{{ data.lat }}</p>
+    {% endblock %}
+</div>
